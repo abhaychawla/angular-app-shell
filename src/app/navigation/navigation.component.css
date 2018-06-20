@@ -1,0 +1,277 @@
+.app-shell-container {
+  max-width: 100%;
+  height: 100vh;
+}
+
+.sidebar-panel, .sidebar-panel .navigation-panel {
+  left: 0;
+}
+
+.sidebar-panel {
+  background-color: white;
+  position: fixed;
+  min-height: 100vh;
+  z-index: 10001;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  /* transition: all .3s cubic-bezier(.35,0,.25,1); */
+}
+
+.app-shell-container .sidebar-full {
+  width: 15rem;
+  overflow: hidden;
+}
+
+.app-shell-container .sidebar-compact, .app-shell-container .sidebar-compact .branding {
+  width: 4rem;
+}
+
+.sidebar-panel .navigation-panel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding-top: 64px;
+  background: hsla(0,0%,100%,.95);
+}
+
+.app-brand {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  max-width: 15rem;
+  height: 64px;
+  line-height: 64px;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  color: #444;
+}
+
+.app-brand .app-logo {
+  width: auto;
+  height: 42px;
+  margin-right: 8px;
+}
+
+.app-shell-container .sidebar-compact .app-brand .app-logo {
+  margin: auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+.app-brand .app-logo-text {
+  width: auto;
+  height: auto;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.app-shell-container .sidebar-compact .app-brand .app-logo-text {
+  display: none;
+}
+
+.app-user {
+  text-align: center;
+  width: 100%;
+  padding: 1rem 0 .4rem;
+}
+
+.app-shell-container .sidebar-compact .app-user {
+  display: none;
+}
+
+.app-user .app-user-photo {
+  width: 72px;
+  margin: 0 auto 8px;
+  height: 72px;
+  border: 1px solid hsla(210,8%,51%,.13);
+  padding: 4px;
+  border-radius: 50%;
+}
+
+.app-user img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.app-user .app-user-name {
+  display: block;
+  font-size: .875rem;
+  font-weight: 300;
+  color: rgba(0,0,0,.96);
+  margin-left: -2px;
+}
+
+.app-sidenav .icon-menu {
+  padding: 0 24px;
+  opacity: 1;
+}
+
+.app-shell-container .sidebar-compact .app-sidenav .icon-menu {
+  padding: 8px 0 0;
+  width: 4rem;
+}
+
+.app-sidenav .nav-item-sep {
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.app-shell-container .sidebar-compact .app-sidenav .icon-menu .nav-item-sep {
+  display: none;
+}
+
+.app-shell-container .sidebar-compact .app-sidenav .nav-item-sep span {
+  display: none;
+}
+
+.icon-menu .mat-divider {
+  margin: 0 -24px;
+}
+
+.icon-menu .icon-menu-title {
+  padding-left: 0;
+  margin-left: -8px;
+}
+
+.nav-item-sep span {
+  padding: 16px 0 0 16px;
+  display: block;
+  font-size: 12px;
+}
+
+.app-shell-container .sidebar-compact .app-sidenav .icon-menu span {
+  display: none;
+}
+
+.app-sidenav .icon-menu .icon-menu-item {
+  display: inline-block;
+}
+
+.app-sidenav .icon-menu .icon-menu-item button {
+  min-width: auto;
+  margin: 4px;
+}
+
+.app-shell-container .sidebar-compact .app-sidenav .icon-menu .icon-menu-item button {
+  margin: 0 0 4px 0;
+  padding: 0 20px;
+}
+
+.app-sidenav mat-nav-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.toolbar {
+  position: relative;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  z-index: 999;
+}
+
+.search-bar mat-form-field {
+  margin-right: 1rem;
+  max-width: 400px;
+  width: 100%;
+  margin-left: 20px;
+  transition: all 2s linear;
+}
+
+mat-form-field {
+  font-size: 1rem;
+  margin-top: 6px;
+}
+
+.language {
+  width: 80px;
+  font-size: .875rem;
+}
+
+.topbar-button-right {
+  margin-left: 1rem;
+}
+
+.margin-right {
+  margin-right: 1rem;
+}
+
+.img-button img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.search {
+  transition: width 2s;
+}
+
+/* input {
+  width: 100%;
+} */
+
+
+/* .app-shell-container .sidebar-compact .app-sidenav .sidenav .mat-nav-list .mat-list-item .mat-list-item-content {
+  padding: 0;
+} */
+
+/* .app-shell-container .sidebar-compact .app-sidenav .sidenav mat-list-item {
+  position: relative;
+  z-index: 10001;
+} */
+
+
+/* .example-container {
+  position: absolute;
+  top: 60px;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}
+
+.example-sidenav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  background: rgba(255, 0, 0, 0.5);
+}
+
+.example-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+} */
+
+/* mat-form-field {
+  margin: 0 10px;
+} */
+
+/*.f-size {
+  font-weight: normal;
+  font-size: 18px;
+}*/
