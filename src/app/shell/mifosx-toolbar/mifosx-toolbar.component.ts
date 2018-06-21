@@ -1,10 +1,25 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { MatSidenav } from '@angular/material';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import {style, state, animate, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'mifosx-toolbar',
   templateUrl: './mifosx-toolbar.component.html',
-  styleUrls: ['./mifosx-toolbar.component.css']
+  styleUrls: ['./mifosx-toolbar.component.css'],
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({opacity:0}),
+        animate(500, style({opacity:1}))
+      ]),
+      transition(':leave', [
+        animate(500, style({opacity:0}))
+      ])
+    ])
+  ]
 })
 export class MifosxToolbarComponent implements OnInit {
 
@@ -15,9 +30,20 @@ export class MifosxToolbarComponent implements OnInit {
   @Input() sidenav: MatSidenav;
   @Output() collapse = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor(private breakpointObserver: BreakpointObserver) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.isHandset$.subscribe(isHandset => {
+      this.isHandset = isHandset;
+    });
+  }
+
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches)
+    );
+
+  isHandset: boolean;
 
   toggleSidenav() {
     this.sidenav.toggle();
@@ -30,6 +56,12 @@ export class MifosxToolbarComponent implements OnInit {
 
   toggleVisibility() {
     this.searchVisible = !this.searchVisible;
+  }
+
+  onMouseEnter(menuTrigger) {
+    if(!this.isHandset) {
+      menuTrigger.openMenu()
+    }
   }
 
 }

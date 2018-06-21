@@ -11,42 +11,47 @@
 
   <nav mat-tab-nav-bar backgroundColor="primary" class="ml-1">
 
-    <a mat-tab-link [active]="true" class="tab-link" [matMenuTriggerFor]="institutionMenu" #institutionMenuTrigger="matMenuTrigger" (mouseenter)="institutionMenuTrigger.openMenu()">
+    <a mat-tab-link [active]="true" class="tab-link" [matMenuTriggerFor]="institutionMenu" #institutionMenuTrigger="matMenuTrigger" (mouseenter)="onMouseEnter(institutionMenuTrigger)">
       <mat-icon class="mr-05">business</mat-icon>
       Institution
     </a>
-    <a mat-tab-link class="tab-link" fxHide.lt-lg="true">
-        <mat-icon class="mr-05">account_balance</mat-icon>
-      Accounting
-    </a>
-    <a mat-tab-link class="tab-link" [matMenuTriggerFor]="reportsMenu" #reportsMenuTrigger="matMenuTrigger" (mouseenter)="reportsMenuTrigger.openMenu()" fxHide.lt-lg="true">
-      <mat-icon class="mr-05">insert_chart_outlined</mat-icon>
-      Reports
-    </a>
-    <a mat-tab-link class="tab-link" [matMenuTriggerFor]="adminMenu" #adminMenuTrigger="matMenuTrigger" (mouseenter)="adminMenuTrigger.openMenu()" fxHide.lt-lg="true">
-        <mat-icon class="mr-05">security</mat-icon>
-      Admin
-    </a>
-    <a mat-tab-link class="tab-link" [matMenuTriggerFor]="selfServiceMenu" #selfServiceMenuTrigger="matMenuTrigger" (mouseenter)="selfServiceMenuTrigger.openMenu()" fxHide.lt-lg="true">
-        <mat-icon class="mr-05">people</mat-icon>
-      Self Service
-    </a>
+
+    <span fxHide.lt-lg="true">
+
+      <a mat-tab-link class="tab-link">
+          <mat-icon class="mr-05">account_balance</mat-icon>
+        Accounting
+      </a>
+      <a mat-tab-link class="tab-link" [matMenuTriggerFor]="reportsMenu" #reportsMenuTrigger="matMenuTrigger" (mouseenter)="reportsMenuTrigger.openMenu()">
+        <mat-icon class="mr-05">insert_chart_outlined</mat-icon>
+        Reports
+      </a>
+      <a mat-tab-link class="tab-link" [matMenuTriggerFor]="adminMenu" #adminMenuTrigger="matMenuTrigger" (mouseenter)="adminMenuTrigger.openMenu()">
+          <mat-icon class="mr-05">security</mat-icon>
+        Admin
+      </a>
+      <a mat-tab-link class="tab-link" [matMenuTriggerFor]="selfServiceMenu" #selfServiceMenuTrigger="matMenuTrigger" (mouseenter)="selfServiceMenuTrigger.openMenu()">
+          <mat-icon class="mr-05">people</mat-icon>
+        Self Service
+      </a>
+
+    </span>
 
   </nav>
 
   <span fxFlex="auto"></span>
 
-  <div *ngIf="searchVisible" class="search-bar" fxFlex="auto" fxHide.lt-sm="true">
+  <div *ngIf="searchVisible" class="search-bar" fxFlex="auto" fxHide.lt-sm="true" [@fadeInOut]>
     <mat-form-field class="search">
       <input matInput type="text" placeholder="Search">
     </mat-form-field>
   </div>
 
-  <button mat-icon-button class="ml-1 mr-1" (click)="toggleVisibility()" fxHide.lt-sm="true">
+  <button mat-icon-button class="ml-1" (click)="toggleVisibility()" fxHide.lt-sm="true">
     <mat-icon>search</mat-icon>
   </button>
 
-  <mat-select placeholder="Language" [(value)]="selectedLanguage" class="language" fxHide.lt-md>
+  <mat-select placeholder="Language" [(value)]="selectedLanguage" class="ml-1 language" fxHide.lt-md>
     <mat-option value="English">English</mat-option>
     <mat-option value="Hindi">Hindi</mat-option>
   </mat-select>
@@ -55,7 +60,7 @@
     <mat-icon>format_color_fill</mat-icon>
   </button>
 
-  <button mat-icon-button class="ml-1" matTooltip="Notifications" fxHide.lt-md>
+  <button mat-icon-button class="ml-1" matTooltip="Notifications">
     <mat-icon>notifications</mat-icon>
   </button>
 
@@ -72,9 +77,9 @@
     <button mat-menu-item>Centers</button>
     <span fxHide.lg>
       <button mat-menu-item>Accounting</button>
-      <button mat-menu-item>Reports</button>
-      <button mat-menu-item>Admin</button>
-      <button mat-menu-item>Self Service</button>
+      <button mat-menu-item [matMenuTriggerFor]="reportsMenu">Reports</button>
+      <button mat-menu-item [matMenuTriggerFor]="adminMenu">Admin</button>
+      <button mat-menu-item [matMenuTriggerFor]="selfServiceMenu">Self Service</button>
     </span>
   </span>
 </mat-menu>
