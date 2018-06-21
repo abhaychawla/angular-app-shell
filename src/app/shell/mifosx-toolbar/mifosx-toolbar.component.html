@@ -1,0 +1,66 @@
+<mat-toolbar fxLayout="row" color="primary" class="toolbar">
+
+  <button mat-icon-button *ngIf="!sidenavCollapsed" (click)="toggleSidenav()" matTooltip="Toggle Hide/Open">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <button mat-icon-button *ngIf="sidenav.opened" (click)="toggleCollapse()" matTooltip="Toggle Collapse" fxHide.lt-md="true">
+    <mat-icon *ngIf="!sidenavCollapsed">chevron_left</mat-icon>
+    <mat-icon *ngIf="sidenavCollapsed">chevron_right</mat-icon>
+  </button>
+
+  <nav mat-tab-nav-bar backgroundColor="primary" class="ml-1" fxHide.lt-lg="true">
+
+    <a mat-tab-link [active]="true" class="tab-link">
+      <mat-icon class="mr-05">business</mat-icon>
+      Institution
+    </a>
+    <a mat-tab-link class="tab-link">
+        <mat-icon class="mr-05">account_balance</mat-icon>
+      Accounting
+    </a>
+    <a mat-tab-link class="tab-link">
+      <mat-icon class="mr-05">insert_chart_outlined</mat-icon>
+      Reports
+    </a>
+    <a mat-tab-link class="tab-link">
+        <mat-icon class="mr-05">security</mat-icon>
+      Admin
+    </a>
+    <a mat-tab-link class="tab-link">
+        <mat-icon class="mr-05">people</mat-icon>
+      Self Service
+    </a>
+
+  </nav>
+
+  <span fxFlex="auto"></span>
+
+  <div *ngIf="searchVisible" class="search-bar" fxFlex="auto" fxHide.lt-sm="true">
+    <mat-form-field class="search">
+      <input matInput type="text" placeholder="Search">
+    </mat-form-field>
+  </div>
+
+  <button mat-icon-button class="ml-1 mr-1" (click)="toggleVisibility()" fxHide.lt-sm="true">
+    <mat-icon>search</mat-icon>
+  </button>
+
+  <mat-select placeholder="Language" [(value)]="selectedLanguage" class="language">
+    <mat-option value="English">English</mat-option>
+    <mat-option value="Hindi">Hindi</mat-option>
+  </mat-select>
+
+  <button mat-icon-button class="ml-1" matTooltip="Color Schemes">
+    <mat-icon>format_color_fill</mat-icon>
+  </button>
+
+  <button mat-icon-button class="ml-1" matTooltip="Notifications">
+    <mat-icon>notifications</mat-icon>
+  </button>
+
+  <button mat-icon-button class="ml-1 img-button">
+    <img src="assets/User.png">
+  </button>
+
+</mat-toolbar>
